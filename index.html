@@ -100,8 +100,21 @@
     </div>
 </section>
 
+<section class="section hero">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="column is-centered has-text-centered">
+            <img src="static/images/teaser_image.png" alt="teaser image" width="100%"/>
+            <p>
+              Given severely degraded face images, InstaRestore efficiently and effectively restores the original subject, 
+              achieving superior identity preservation compared to previous approaches, while delivering near-real-time performance.
+            </p>
+      </div>
+  </div>
+</section>
+
 <section class="hero">
-    <section class="hero teaser">
+    <section class="hero teaser is-light">
         <div class="container is-max-desktop">
             <div class="hero-body">
                 <div class="container">
@@ -117,31 +130,12 @@
                             </div>
                             <div id="playButtonOverlay" class="play-overlay"></div>
                             <p>
-                              <br>
-                              By leveraging implicit correspondences learned by the underlying diffusion model, we learn to align degraded input "patches" with the most relevant 
-                              high-quality "patches" from a small set of reference images (~4). 
-                              <br>
-                              By transferring these patches, we can effectively "fill in" identity-specific details missing from the degraded input.
-                              <br>
-                              We also show that we can perform this restoration in a <i>single</i> forward pass, as the degraded input inherently defines the desired output structure.
+                              <b>TL;DR:</b>
+                              Leveraging implicit correspondences from a pretrained diffusion model, we align degraded input patches with high-quality patches from ~4 reference images to restore identity-specific details in a <i>single</i> forward pass.
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section hero is-light">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-centered has-text-centered">
-                  <h2 class="title is-3">Teaser</h2>
-                  <img src="static/images/teaser_image.png" alt="teaser image" width="100%"/>
-                  <p>
-                    Given severely degraded face images, InstaRestore efficiently and effectively restores the original subject, 
-                    achieving superior identity preservation compared to previous approaches, while delivering near-real-time performance.
-                  </p>
             </div>
         </div>
     </section>
