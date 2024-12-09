@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta property="og:title" content="InstantRestore: Single-Step Personalized Face Restoration with Shared-Image Attention"/>
+    <meta property="og:url" content="https://snap-research.github.io/InstantRestore/"/>
+    <meta property="og:image" content="static/images/personalization_icon.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="1200"/>
+
+
+    <title>InstantFace</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="icon" href="/static/images/personalization_icon.png">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+
+<section class="publication-header">
+    <div class="hero-body">
+        <div class="container is-max-widescreen">
+            <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">InstantRestore: Single-Step Personalized Face Restoration with Shared-Image Attention</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="publication-author-block">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><a href="https://howardzhang-cv.github.io/personal_website/" target="_blank">Howard Zhang</a><sup>* 1,2</sup>,</span>
+                        <span class="author-block"><a href="https://yuval-alaluf.github.io/" target="_blank">Yuval Alaluf</a><sup>* 1,3</sup>,</span>
+                        <span class="author-block"><a href="https://sizhuoma.netlify.app/" target="_blank">Sizhuo Ma</a><sup>1</sup>,</span>
+                        <span class="author-block"><a href="https://samueli.ucla.edu/people/achuta-kadambi/" target="_blank">Achuta Kadambi</a><sup>2</sup>,</span>
+                        <br>
+                        <span class="author-block"><a href="https://jianwang-cmu.github.io/" target="_blank">Jian Wang</a><sup>† 1</sup>,</span>
+                        <span class="author-block"><a href="https://kfiraberman.github.io/" target="_blank">Kfir Aberman</a><sup>† 1</sup></span>
+                    </div>
+                    <div class="is-size-5 publication-authors">
+                      <span class="author-block"><sup>1</sup>Snap Inc.,</span>  
+                      <span class="author-block"><sup>2</sup>University of California, Los Angeles,</span>
+                      <span class="author-block"><sup>3</sup>Tel Aviv University</span>
+                    </div>
+                    <div class="is-size-6 publication-authors">
+                      <span class="author-block"><sup>*</sup>Denotes equal contribution.</span>
+                      <br>
+                      <span class="author-block"><sup>†</sup>Denotes equal advising.</span>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/" target="_blank"
+                   class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+                <!-- <span class="link-block">
+                <a href="https://snap-research.github.io/InstantRestore/" target="_blank"
+                   class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span> -->
+
+                      </div>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero">
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="item">
+                        <div class="column is-centered has-text-centered">
+                          <div class="video-wrapper" height="100%">
+                            <video id="my_video_1" playsinline autoplay muted loop preload="auto">
+                                <source src="./static/files/CVPR_25_InstantRestore_white_bgr.mp4" type="video/mp4">
+                                <source src="./static/files/CVPR_25_InstantRestore_white_bgr.webm" type="video/webm">
+                                <source src="./static/files/CVPR_25_InstantRestore_white_bgr.ogg" type="video/ogg">
+                                Your browser does not support the video tag.
+                              </video>
+                            </div>
+                            <div id="playButtonOverlay" class="play-overlay"></div>
+                            <p>
+                              <br>
+                              By leveraging implicit correspondences learned by the underlying diffusion model, we learn to align degraded input "patches" with the most relevant 
+                              high-quality "patches" from a small set of reference images (~4). 
+                              <br>
+                              By transferring these patches, we can effectively "fill in" identity-specific details missing from the degraded input.
+                              <br>
+                              We also show that we can perform this restoration in a <i>single</i> forward pass, as the degraded input inherently defines the desired output structure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-centered has-text-centered">
+                  <h2 class="title is-3">Teaser</h2>
+                  <img src="static/images/teaser_image.png" alt="teaser image" width="100%"/>
+                  <p>
+                    Given severely degraded face images, InstaRestore efficiently and effectively restores the original subject, 
+                    achieving superior identity preservation compared to previous approaches, while delivering near-real-time performance.
+                  </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                  <h2 class="title is-3">Abstract</h2>
+                  <div class="content has-text-justified">
+                      <p>
+                        Face image restoration aims to enhance degraded facial images while addressing challenges such as diverse degradation types, real-time processing demands, and, most crucially, the preservation of identity-specific features. Existing methods often struggle with slow processing times and suboptimal restoration, especially under severe degradation, failing to accurately reconstruct finer-level identity details. To address these issues, we introduce InstantRestore, a novel framework that leverages a single-step image diffusion model and an attention-sharing mechanism for fast and personalized face restoration. Additionally, InstantRestore incorporates a novel landmark attention loss, aligning key facial landmarks to refine the attention maps, enhancing identity preservation. At inference time, given a degraded input and a small (~4) set of reference images, InstantRestore performs a single forward pass through the network to achieve near real-time performance. Unlike prior approaches that rely on full diffusion processes or per-identity model tuning, InstantRestore offers a scalable solution suitable for large-scale applications.  Extensive experiments demonstrate that InstantRestore outperforms existing methods in quality and speed, making it an appealing choice for identity-preserving face restoration.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <!--/ Abstract. -->
+      </div>
+  </section>
+
+
+
+
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">How Does it Work?</h2>
+                    <div class="content has-text-justified">
+                    </div>
+                    <div class="column is-centered has-text-centered">
+                        <img src="static/images/method.png" alt="Method" width="100%"/>
+                    </div>
+                    <ul class="column is-centered has-text-justified">
+                      <li> We fine-tune a pretrained single-step diffusion model to directly map a degraded input image to a high-quality restored output in a single forward pass.
+                      </li>
+                      <br>
+                      <li> Operating in a single step allows us to apply image-based losses such as LPIPS, MSSIM, identity, and adversarial losses directly on the output, providing more explicit and effective supervision for training compared to mulit-step diffusion approaches.
+                      </li>
+                      <br>
+                      <li> To inject identity-specific information, we use a frozen diffusion model to extract the keys and values from a set of reference images and inject those into the restoration process.
+                      <br>
+                    <!-- </ul> -->
+
+                    <div class="column is-centered has-text-centered">
+                      <br><br>
+                      <h3 class="title is-4">Injecting Identity Information</h3>
+                      <br>
+                      <img src="static/images/block.png" alt="Method" width="70%"/>      
+                    </div>
+                    <!-- <ul class="column is-centered has-text-justified"> -->
+                      <li> Previous works have shown that diffusion models form implicit correspondences between images using the queries, keys, and values of the denoising network.
+                      </li>
+                      <br>
+                      <li> Using these correspondences, we find the most relevant high-quality reference patches for each low-quality input patch, giving each patch an attention weight via an extended self-attention mechanism.
+                      </li>
+                      <br>
+                      <li> After finding the most relevant reference patches, our task simplifies to "filling in" identity-related details the corresponding values from the selected reference regions.
+                      </li>
+                      <br>
+                      <li> We find that this transfer can be done with a single pass through the denoising network, as we only need to match relevant patches rather than generate a new image entirely, resulting in an efficient approach.
+                    </ul>
+                </div>
+            </div>
+          </p>
+        </div>
+    </section>
+
+
+    <section class="section hero">
+      <div class="hero-body">
+      <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                  <h2 class="title is-3">Results</h2>
+              </div>
+          </div>
+          <h3 class="title is-4 has-text-centered">Ours Results</h3>
+          <div id="results-carousel-2" class="carousel results-carousel">
+              <div class="column is-centered has-text-centered">
+                <img src="static/images/result_5.png" alt="result_5" width="80%"/>
+              </div>
+              <div class="column is-centered has-text-centered">
+                <img src="static/images/result_4.png" alt="result_4" width="80%"/>
+            </div>
+            <div class="column is-centered has-text-centered">
+              <img src="static/images/result_3.png" alt="result_3" width="80%"/>
+            </div>
+              <div class="column is-centered has-text-centered">
+                <img src="static/images/result_2.png" alt="result_2" width="80%"/>
+              </div>
+              <div class="column is-centered has-text-centered">
+                <img src="static/images/result_1.png" alt="result_1" width="80%"/>
+              </div>
+              <div class="column is-centered has-text-centered">
+                <img src="static/images/result_6.png" alt="result_6" width="80%"/>
+            </div>
+          </div>
+      </div>
+
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content has-text-centered">
+                </div>
+                <h3 class="title is-4">Qualitative Comparisons</h3>
+                <p class="content has-text-centered">
+                  We compare InstantRestore with existing state-of-the-art blind face restoration methods, including GFPGAN, CodeFormer, DiffBIR, and Dual-Pivot Tuning, and against reference-based methods that leverage multiple reference images to guide restoration including ASFFNet and DMDNet.
+                </p>
+                <div id="results-carousel-4" class="carousel results-carousel">
+                  <div class="column is-centered has-text-centered">
+                    <img src="static/images/comparisons_1.png" alt="comparisons_1" width="100%"/>
+                  </div>
+                  <div class="column is-centered has-text-centered">
+                    <img src="static/images/comparisons_2.png" alt="comparisons_2" width="100%"/>
+                  </div>
+                  <div class="column is-centered has-text-centered">
+                    <img src="static/images/comparisons_3.png" alt="comparisons_3" width="100%"/>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+              <div class="content has-text-centered">
+              </div>
+              <h3 class="title is-4">Quantitative Comparisons</h3>
+              <p class="content has-text-centered">
+                  We compare our approach using both standard image-based metrics (LPIPS, SSIM, and PSNR) as well as identity similarity.
+                  We also evaluate the effect of adding additional references as well as our performance on the x4, x8, and x16 super resolution tasks
+              </p>
+          </div>
+      </div>
+      <div id="results-carousel-4" class="carousel results-carousel">
+          <div class="column is-centered has-text-centered">
+            <img src="static/images/quant_comparisons.png" alt="quant_comparisons" width="50%"/>
+          </div>
+          <div class="column is-centered has-text-centered">
+            <br><br><br><br><br>
+            <img src="static/images/number_of_references.png" alt="number_of_references" width="50%"/>
+          </div>
+          <div class="column is-centered has-text-centered">
+            <img src="static/images/super_resolution.png" alt="super_resolution" width="80%"/>
+          </div>
+      </div>
+      </div>
+      </div>
+
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <p>If you find our work useful, please cite our paper:</p>
+      <pre>
+        <code>
+        </code>
+      </pre>
+    </div>
+  </section>
+
+
+    <footer class="footer">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                    <p>
+                        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page.
+                        If you want to reuse their <a href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+</body>
+</html>
