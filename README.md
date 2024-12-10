@@ -31,5 +31,13 @@ Official implementation of our InstantRestore face restoration paper.
 # Citation
 If you use this code for your research, please cite the following work:
 ```
-
+@misc{zhang2024instantrestore,
+      title={InstantRestore: Single-Step Personalized Face Restoration with Shared-Image Attention}, 
+      author={Howard Zhang and Yuval Alaluf and Sizhuo Ma and Achuta Kadambi and Jian Wang and Kfir Aberman},
+      year={2024},
+      eprint={2412.06753},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.06753}, 
+}
 ```
