@@ -1,0 +1,54 @@
+compute:  
+  batch_size: 1
+  workers: 12
+optim:
+  learning_rate: 5e-4
+  scheduler_type: CONSTANT
+  target_lr: 5e-4
+  lambda_lpips: 5.0
+  lambda_dreamsim: 0.0
+  lambda_l2: 0.0
+  lambda_l1: 0.0
+  lambda_ssim: 1.0
+  lambda_id_loss: 1.0
+  lambda_gan: 0.5
+  lambda_attn_reg: 0.0
+  lambda_cycle: 0.0
+  lambda_landmark: 5000.0
+  lambda_pos_reg: 0.0
+  lambda_neg_reg: 0.0
+  lambda_facial_comp: 0.0
+  gan_disc_type: dinov2
+  gradient_accumulation_steps: 4
+  compute_id_loss_between_identities: false
+  mixed_precision: true
+data:
+  data_root: path/to/your/data
+  val_data_root: path/to/your/val_data
+  dataset_type: face_restore
+  max_conditioning_images: 4
+  store_landmarks: false
+model:
+  net_type: pix2pix_turbo
+  lora_rank_unet: 32
+  lora_rank_vae: 32
+  use_shared_attention: true
+  train_vae: true
+  train_only_vae_encoder: false
+  guidance_scale: 0
+  use_shortcuts: false
+  use_adain: true
+  train_input: false
+  checkpoint_path: null
+log:
+  exp_root: path/to/experiments
+  exp_name: exp_name
+  log2wandb: true
+  val_vis_count: 50
+  vis_attention: false
+steps:
+  max_steps: 50000
+  image_interval: 150
+  metric_interval: 10
+  val_interval: 250
+  save_interval: 500
