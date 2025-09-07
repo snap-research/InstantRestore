@@ -31,6 +31,17 @@ Official implementation of our InstantRestore face restoration paper.
 ## Setup 
 A conda environment containing the necessary libraries is provided in `environment.yaml`.
 
+### Pretrained Checkpoints
+You can download the pretrained models here:
+- [Base Model](https://huggingface.co/hwdz15508/InstantRestore/blob/main/base_ablation_ckpt.pt)
+- [AdaIn Model](https://huggingface.co/hwdz15508/InstantRestore/blob/main/adain_ablation_ckpt.pt)
+- [Landmark Attention Model](https://huggingface.co/hwdz15508/InstantRestore/blob/main/lmattn_ablation_ckpt.pt)
+- [Final Model](https://huggingface.co/hwdz15508/InstantRestore/blob/main/final_model_ckpt.pt)
+
+### External Models
+External models can be found here:
+- [External Model Link](https://huggingface.co/hwdz15508/InstantRestore/tree/main)
+
 ## Training 
 Training currently can be done by running `train.py` in `scripts` folder and passing a config file. For example:
 ```bash
