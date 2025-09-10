@@ -1,5 +1,7 @@
 # InstantRestore: Single-Step Personalized Face Restoration with Shared-Image Attention
 
+## SIGGRAPH 2025
+
 > Howard Zhang*, Yuval Alaluf*, Sizhuo Ma, Achuta Kadambi, Jian Wang†, Kfir Aberman†  
 > *Denotes equal contribution  
 > †Denotes equal advising
