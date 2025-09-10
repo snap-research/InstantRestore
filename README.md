@@ -113,13 +113,11 @@ Something not working? The code has annoying bugs? Feel free to reach out to Yuv
 # Citation
 If you use this code for your research, please cite the following work:
 ```
-@misc{zhang2024instantrestore,
-      title={InstantRestore: Single-Step Personalized Face Restoration with Shared-Image Attention}, 
-      author={Howard Zhang and Yuval Alaluf and Sizhuo Ma and Achuta Kadambi and Jian Wang and Kfir Aberman},
-      year={2024},
-      eprint={2412.06753},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2412.06753}, 
+@inproceedings{zhang2025instantrestore,
+  title={Instantrestore: Single-step personalized face restoration with shared-image attention},
+  author={Zhang, Howard and Alaluf, Yuval and Ma, Sizhuo and Kadambi, Achuta and Wang, Jian and Aberman, Kfir},
+  booktitle={Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Conference Papers},
+  pages={1--10},
+  year={2025}
 }
 ```
