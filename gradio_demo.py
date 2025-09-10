@@ -1,32 +1,20 @@
-import logging
-from enum import Enum, auto
-from pathlib import Path
-from typing import List, Any, Optional
 from natsort import natsorted
 from glob import glob
 
 import pyrallis
 import torch
-from PIL import Image
-from torch import Tensor
-from torch.utils.data import DataLoader
-from tqdm import tqdm
 import numpy as np
 from torchvision import transforms
-from insightface.app import FaceAnalysis
-import time
 import sys
 sys.path.append(".")
 sys.path.append("..")
 
 from face_replace.configs.train_config import TrainConfig
-from face_replace.data.datasets import paths_dataset
 from face_replace.models.face_replace_model import FaceReplaceModel
-from face_replace.training.utils.vis_utils import tensor2im, tensor2np
+from face_replace.training.utils.vis_utils import tensor2im
 from face_replace.models.attn_processors import SharedAttnProcessor
 
-from torchvision.transforms.v2 import GaussianBlur, Resize
-from face_replace.data.transforms.paired_transforms import PairedTransform, PairedColorJitter
+from torchvision.transforms.v2 import Resize
 from face_replace.data.transforms.augmentations import GaussianNoise, JPEGCompress,CustomGaussianBlur
 
 import gradio as gr

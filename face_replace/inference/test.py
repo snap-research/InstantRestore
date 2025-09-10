@@ -7,21 +7,17 @@ import pyrallis
 import torch
 from PIL import Image
 from torch import Tensor
-from torch.utils.data import DataLoader
-from tqdm import tqdm
 import numpy as np
 from torchvision import transforms
 from insightface.app import FaceAnalysis
-import matplotlib.pyplot as plt
 
 import sys
 sys.path.append(".")
 sys.path.append("..")
 
 from face_replace.configs.train_config import TrainConfig
-from face_replace.data.datasets import paths_dataset
 from face_replace.models.face_replace_model import FaceReplaceModel
-from face_replace.training.utils.vis_utils import tensor2im, tensor2np
+from face_replace.training.utils.vis_utils import tensor2im
 from face_replace.models.attn_processors import SharedAttnProcessor
 
 import time
