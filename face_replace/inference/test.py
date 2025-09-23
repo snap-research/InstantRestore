@@ -42,7 +42,7 @@ class Predictor:
         checkpoint_dict = torch.load(checkpoint_path)
         self.cfg = pyrallis.decode(TrainConfig, checkpoint_dict['cfg'])
 
-        self.face_replace_model = FaceReplaceModel(cfg=self.cfg.model, full_cfg=self.cfg)
+        self.face_replace_model = FaceReplaceModel(cfg=self.cfg.model, full_cfg=self.cfg, evaluating=True)
         try:
             out = self.face_replace_model.load_state_dict(checkpoint_dict['state_dict'], strict=True)
         except:
@@ -164,12 +164,12 @@ class Predictor:
 
 if __name__ == '__main__':
     calc_attn_probs = False
-    checkpoint_path = 'path/to/checkpoint/ckpt.pt'
+    checkpoint_path = '/usr/project/DiffusionFace/code_release_test/InstantRestore/ckpts/final_model_ckpt.pt'
     predictor = Predictor(checkpoint_path=checkpoint_path)
 
-    results_dir = Path(f'path/to/resultsdir')
+    results_dir = Path(f'/usr/project/DiffusionFace/code_release_test/InstantRestore/Results')
     results_dir.mkdir(exist_ok=True)
-    data_root = Path('path/to/data')
+    data_root = Path('/usr/project/DiffusionFace/code_release_test/InstantRestore/gradio_data')
     identities = sorted(data_root.glob(f'*'))
     for identity in identities:
         # input_path = identity / 'degraded.png'

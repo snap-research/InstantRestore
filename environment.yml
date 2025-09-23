@@ -1,0 +1,42 @@
+name: py310
+channels:
+  - defaults
+dependencies:
+  - pytorch-cuda==11.7=h778d358_5
+  - tk==8.6.14=h39e8969_0
+  - cuda-nvtx==11.7.91=0
+  - libnpp==11.7.4.75=0
+  - zlib==1.2.13=h5eee18b_1
+  - cuda-runtime==11.7.1=0
+  - cudatoolkit==11.0.221=h6bb024c_0
+  - libgomp==11.2.0=h1234567_1
+  - libstdcxx-ng==11.2.0=h1234567_1
+  - openssl==1.1.1w=h7f8727e_0
+  - cuda-cudart==11.7.99=0
+  - readline==8.2=h5eee18b_0
+  - sqlite==3.45.3=h5eee18b_0
+  - _libgcc_mutex==0.1=main
+  - bzip2==1.0.8=h5eee18b_6
+  - cuda-cupti==11.7.101=0
+  - ld_impl_linux-64==2.38=h1181459_1
+  - libcusparse==11.7.4.91=0
+  - cuda-libraries==11.7.1=0
+  - _openmp_mutex==5.1=1_gnu
+  - ca-certificates==2024.3.11=h06a4308_0
+  - wheel==0.43.0=py310h06a4308_0
+  - libuuid==1.41.5=h5eee18b_0
+  - ncurses==6.4=h6a678d5_0
+  - libcurand==10.3.5.147=0
+  - libcusolver==11.4.0.1=0
+  - libcufile==1.9.1.3=0
+  - xz==5.4.6=h5eee18b_1
+  - python==3.10.13=h7a1cb2a_0
+  - cuda-nvrtc==11.7.99=0
+  - libgcc-ng==11.2.0=h1234567_1
+  - pip==24.0=py310h06a4308_0
+  - libcublas==11.10.3.66=0
+  - libffi==3.4.4=h6a678d5_1
+  - libnvjpeg==11.8.0.2=0
+  - setuptools==69.5.1=py310h06a4308_0
+  - libcufft==10.7.2.124=h4fbf590_0
+prefix: /opt/conda/envs/py310
