@@ -55,20 +55,20 @@ All arguments are parsed using [pyrallis](https://github.com/eladrich/pyrallis) 
 `train_landmarkloss_adain.yaml` is used to train a model with AdaIn and Landmark Attention Loss
 
 For training, you need to provide a dataset that has this structure:
-    ```
-    dataset_folder/
-    ├── identity_1/
-    │   ├── cropped_images/
-    │   │    ├── image1.jpg/png
-    │   │    ├── image1.jpg/png
-    │   │    └── ...
-    ├── identity_2/
-    │   ├── cropped_images/
-    │   │    ├── image1.jpg/png
-    │   │    ├── image1.jpg/png
-    │   │    └── ...
-    └── ...
-    ```
+```
+dataset_folder/
+├── identity_1/
+│   ├── cropped_images/
+│   │    ├── image1.jpg/png
+│   │    ├── image1.jpg/png
+│   │    └── ...
+├── identity_2/
+│   ├── cropped_images/
+│   │    ├── image1.jpg/png
+│   │    ├── image1.jpg/png
+│   │    └── ...
+└── ...
+```
 
 Currently, the code to provide landmarks for the Landmark Attention Loss is not available, so only base and adain training is available.
 
@@ -86,7 +86,7 @@ lmattn_ablation_ckpt.pt: checkpoint with the landmark attention supervision
 final_model_ckpt.pt: checkpoint with both adain and landmark attention supervision on
 
 Also provide a path to the dataset in the `test.py`. It should be in this format:
-
+```
 dataset_folder/
     ├── identity_1/
     │   ├── degraded.png
@@ -103,6 +103,7 @@ dataset_folder/
     │   │    ├── 2.png
     │   │    └── ...
     └── ...
+```
 
 Also provide a path to where to store the results.
 
