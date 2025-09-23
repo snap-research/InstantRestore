@@ -31,7 +31,8 @@ Official implementation of our InstantRestore face restoration paper.
 <br>
 
 ## Setup 
-A conda environment containing the necessary libraries is provided in `environment.yaml`.
+A conda environment containing the necessary libraries is provided in `environment.yml`.
+This code was tested with the docker image pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel, with python version 3.10.13.
 
 ### Pretrained Checkpoints
 You can download the pretrained models here:
